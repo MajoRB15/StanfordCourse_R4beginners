@@ -29,12 +29,40 @@ knitr::include_graphics("/home/majo/Desktop/Stanford/R_MiniCourse/R_meme.png")
 
 # How does R looks like
 
+##Starting to Code in R
+
+Create an R Project in your computer by:
+
+* File > New Project
+
+* Locate it somewhere you like
+
+* Name it R_Minicourse
+
+* Create an Script
+
+##Starting to Code in R
+Headings are important for bioinformatics and coding in general!
+
+```{r, eval=FALSE, echo=TRUE}
+########################
+# Author: 
+# Date of creation: 
+# Purpose of the script: 
+# Input directory:
+# Output directory: 
+# Packaged needed: 
+# files needed: 
+#######################
+```
+
+
 ## R Basics
 ```{r, eval=FALSE, echo=TRUE}
 # This is a comment
 ```
 
-* Ctr + Shift + # ; Comment several lines
+* Ctr + Shift + C ; Comment several lines
 
 * "=" is used for assigning values as well as "<-"
 
@@ -55,24 +83,24 @@ knitr::include_graphics("/home/majo/Desktop/Stanford/R_MiniCourse/R_meme.png")
 ## Types of variables - Managment
 
 
-|   **Type**   |  **Creation**   |  **Conversion**  |
-|--------------|-----------------|------------------|
-|  `numeric`   |  `numeric()`    |  `as.numeric()`  |
-|  `integer`   |  `integer()`    |  `as.integer()`  |
-|  `double`    |  `double()`     |  `as.double()`   |
-|  `character` |  `character("")`|  `as.character()`|
-|  `factor`    |  `factor()`     |  `as.character()`|
-|  `logical`   |  `logical()`    |  `as.logical()`  |
+|   **Type**   |  **Conversion**  |
+|--------------|------------------|
+|  `numeric`   | `as.numeric()`  |
+|  `integer`   | `as.integer()`  |
+|  `double`    | `as.double()`   |
+|  `character` | `as.character()`|
+|  `factor`    | `as.character()`|
+|  `logical`   | `as.logical()`  |
 
 
 ## Types of variables - Rules
 
 |   **Type**   |                    **Rules**                    |
 |--------------|-------------------------------------------------|
-|  `numeric`   |      `FALSE = 0`; `TRUE = 1`; `"A" = NA`        |
-|  `integer`   |       `FALSE = 0`; `TRUE = 1`; `"A" = NA`       |
+|  `numeric`   |      `0= FALSE`; ` 1= FALSE`; `"A" = NA`        |
+|  `integer`   |       `0= FALSE`; ` 1= FALSE`; `"A" = NA`       |
 |  `double`    |                                                 |
-|  `character` |      `"1" = "1"`; `FALSE = "FALSE"`             |
+|  `character` |      `"1"= 1`; `"FALSE"= FALSE`             |
 |  `factor`    |                                                 |
 |  `logical`   |`0 = FALSE`; `1 = TRUE`; `"A" = NA`; `"8" = NA`  |
 
@@ -105,6 +133,7 @@ read.csv("/home/directory/Stanford/Data_Example1.csv")
 ```{r, fig.align="center",out.width="90%"}
 knitr::include_graphics("/home/majo/Desktop/Stanford/R_MiniCourse/RTypesofData.png")
 ```
+
 
 ## Vectors
 
