@@ -1,0 +1,296 @@
+---
+title: '1st Class: R 4 Beginners'
+author: "Maria Jose Rodriguez Barrera"
+date: "2024-10-17"
+output: "beamer_presentation"
+Theme: "Berkley"
+colortheme: "seahorse"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Class Github
+* Link to Class Github: https://github.com/MajoRB15/StanfordCourse_R4beginners
+```{r, out.width="40%", fig.align='center'}
+knitr::include_graphics("/home/majo/Desktop/Stanford/R_MiniCourse/GitHub_R4beginners.png")
+```
+
+
+## R Installation
+
+* Install in: https://cran.r-project.org/
+
+* If you need more help you can also see: https://rstudio-education.github.io/hopr/starting.html
+```{r, out.width="40%", fig.align='center'}
+knitr::include_graphics("/home/majo/Desktop/Stanford/R_MiniCourse/R_meme.png")
+```
+
+# How does R looks like
+
+# Starting to code in R
+
+## Project Creation
+
+Create a project by:
+
+* Assigning a place to this class in your computer (mentally)
+
+* Open R, go to File tab
+
+* Click Create New Project
+
+* Assing the directory/place you want to save this in your computer 
+
+* Give it the name: *R_MiniCourse*
+
+## Heading
+
+A good heading is useful for project sharing and is a good practice of bioinformatics!
+Headings must have:
+```{r, echo=TRUE, eval=FALSE}
+#Author:
+#Date:
+# Script Purpose:
+#Input directory:
+#Output directory: 
+#Packages needed:
+```
+
+# R Basics
+
+## R Basics
+```{r, eval=FALSE, echo=TRUE}
+# This is a comment
+```
+
+* Ctr + Shift + C ; Comment several lines
+
+* "=" is used for assigning values as well as "<-"
+
+* Ctrl + Enter; running code
+  
+
+## Types of Variables- Use
+
+|   **Type**   |  **Example**  |           **Use**            |
+|--------------|---------------|----------------------------------|
+|  `numeric`   |    `2.5`      | `For storing any type of number values` |
+|  `integer`   |    `2`        | `For integer numbers` |
+|  `double`    |    `2.5`      |   `For decimal numbers`                             |
+|  `character` |  `"Hello"`    | `Words`  |
+|  `factor`    |  `Comedy`     |        `Categorical Values `                       |
+|  `logical`   |  `1; TRUE`    |               `Logical Values`                 |
+
+## Types of variables - Managment
+
+
+|   **Type**   |  **Conversion**  |
+|--------------|------------------|
+|  `numeric`   | `as.numeric()`  |
+|  `integer`   | `as.integer()`  |
+|  `double`    | `as.double()`   |
+|  `character` | `as.character()`|
+|  `factor`    | `as.character()`|
+|  `logical`   | `as.logical()`  |
+
+
+## Types of variables - Rules
+
+|   **Type**   |                    **Rules**                    |
+|--------------|-------------------------------------------------|
+|  `numeric`   |      `0= FALSE`; ` 1= FALSE`; `"A" = NA`        |
+|  `integer`   |       `0= FALSE`; ` 1= FALSE`; `"A" = NA`       |
+|  `double`    |                                                 |
+|  `character` |      `"1"= 1`; `"FALSE"= FALSE`             |
+|  `factor`    |                                                 |
+|  `logical`   |`0 = FALSE`; `1 = TRUE`; `"A" = NA`; `"8" = NA`  |
+
+## Useful commands
+
+```{r, echo=TRUE, eval= FALSE}
+getwd() #Get Working Directory
+
+#Set Working Directory
+setwd("/home/majo/Desktop/Stanford/R_MiniCourse") 
+
+#Visualize file in the working directory
+dir()
+
+#To know the type of variable
+str(variable) 
+class(variable)
+```
+
+## Upload commands
+
+```{r, echo=TRUE, eval= FALSE}
+#All of these will read the file, upload it to R 
+#and save it in the variable data
+data.frame("/home/directory/Data_Example1.csv")
+read.table("/home/majo/directory/Stanford/Data_Example1.csv")
+read.csv("/home/directory/Stanford/Data_Example1.csv")
+```
+
+## Types of Data
+
+```{r, fig.align="center",out.width="90%"}
+knitr::include_graphics("/home/majo/Desktop/Stanford/R_MiniCourse/RTypesofData.png")
+```
+
+
+## Vectors
+
+* One dimension
+
+```{r, echo=TRUE, eval= FALSE}
+#---Vector Creation----
+c(1,2,3)
+#Saving it in a variable
+vector=c(1,2,3)
+#Vector of characters
+names= c("Andy", "Mia", "Greg")
+```
+
+## Matrix
+
+* Two dimensions
+
+```{r, echo=TRUE, eval= FALSE}
+#---Matrix Creation----
+matrix(nrow = 3, ncol=4) #Empty matrix 3x4
+
+matrix(seq_len(12), nrow = 3, ncol=4) 
+```
+
+## Useful Commands
+
+```{r, echo=TRUE, eval= FALSE}
+#seq_len()
+seq_len(4) #number from 1-4 in order
+
+#Bind data:
+#paste0()
+paste0("Gene", seq(5)) #It will create a vector of Genes 
+#numbered from 1-5. Gene1,...,Gene5
+
+#For repetition 
+rep("Dominant", 7) #It will repeat Dominant 7 times
+```
+
+> seq() command will work the same way as seq_len()
+
+## Access to the data
+
+### Vector
+```{r, eval=FALSE, echo=TRUE}
+#Vector of characters
+names= c("Andy", "Mia", "Greg")
+#Printing our vector
+names #or
+print(names)
+#Getting Mia
+names[2]
+#Eliminating Greg
+names =names[-3]
+```
+
+
+## Access to the data
+
+### Matrix
+
+```{r, eval=FALSE, echo=TRUE}
+#Save our matrix
+matrix1=matrix(seq_len(12), nrow = 3, ncol=4) 
+#Print matrix
+matrix1
+matrix1[,drop=FALSE]
+
+#Access number 5
+matrix1[2,2]
+#Print first column
+matrix1[,1, drop=FALSE]
+```
+
+## Exercises
+
+### Vector
+
+* Create a Vector called names and add your 4 favorite movie characters names
+
+* Print the first and the third character name at the same time and save it in a variable call "buddys"
+
+* Eliminate the 1st character in the vector and afterwards replace it with someone elses name
+
+
+## Exercises
+
+### Matrix
+
+* Create a matrix called Genes that looks like this:
+```{r, eval=TRUE}
+matrix= matrix(paste0("Gene",seq(2)), 2,2)
+matrix
+```
+
+* Replace the element [1,2] with a "1".
+
+* Is number 1 a character or a number? If it isn't a number, turn it to a number. Can you?
+
+* Eliminate column 1 of your matrix
+
+## Answers
+
+### Vector
+
+```{r, eval=FALSE, echo=TRUE}
+#Names vector 
+names= c("Stich", "Saitama", "Luffy", "Enola")
+#Printing first and third names
+names[c(1,3)]
+#Eliminating the 1st character 
+names= names[-1]
+```
+
+
+## Answers
+
+### Matrix
+
+```{r, eval=FALSE, echo=TRUE}
+#Creation of the matrix: There are several ways of doing this...
+matrix= matrix(paste0("Gene",seq(2)), 2,2)
+matrix= matrix(c("Gene1", "Gene2", "Gene1", "Gene2"), 2,2)
+matrix= matrix(rep(c("Gene1", "Gene2"),2), 2,2)
+```
+
+## Answers
+
+### Matrix
+
+```{r, eval=FALSE, echo=TRUE}
+#Replacing the element [1,2] with a "1".
+matrix[1,2]=1
+
+#Obtaining the type of variable of [1,2] element
+str(matrix[1,2])
+
+#Turning [1,2] element into a number. 
+#These would be the commands if you could do this, BUT...
+matrix[1,2]= as.numeric(matrix[1,2])
+matrix[1,2]= as.integer(matrix[1,2])
+matrix[1,2]= as.double(matrix[1,2])
+#...you cant have different types of variables in matrixes
+#nor in vectors
+```
+
+## Answers
+
+### Matrix
+
+```{r, eval=FALSE, echo=TRUE}
+#Eliminating column 1 of the matrix
+matrix= matrix[,-1] 
+```
